@@ -5,7 +5,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 import streamlit as st
 # from langchain_community.retrievers.multi_query import MultiQueryRetriever
 
@@ -19,7 +19,10 @@ splitter = RecursiveCharacterTextSplitter(
 ) 
 result = splitter.split_documents([docs[0]])                        #split_document isliye use kiyae kyuki string kao document mai convert karne kae liyae
 vectorstore = Chroma(
-    embedding_function=GoogleGenerativeAIEmbeddings(model="models/embedding-001"),
+    embedding_function=GoogleGenerativeAIEmbeddings(
+        model="models/embedding-001",
+        google_api_key=st.secrets["GOOGLE_API_KEY"]
+    ),
     persist_directory='Chromadb',
     collection_name='yash'
 )
