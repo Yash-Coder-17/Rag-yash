@@ -18,3 +18,5 @@ pyttsx3
 gtts
 Sounddevice
 pypdf
+langchain-chroma
+chromadb
