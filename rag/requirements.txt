@@ -1,7 +1,7 @@
-langchain
+langchain>=0.3.0
 langchain-core
 groq
-langchain-google-genai
+langchain-google-genai>=2.0.0
 google-generativeai
 langchain-huggingface
 transformers
@@ -10,7 +10,7 @@ python-dotenv
 numpy
 scikit-learn
 streamlit
-langchain_community
+langchain_community>=0.3.0
 langchain_experimental
 SpeechRecognition
 pydub
