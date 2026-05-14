@@ -26,7 +26,8 @@ vectorstore = Chroma(
     persist_directory='rag/Chromadb',
     collection_name='yash'
 )
-vectorstore.add_documents(result)
+if vectorstore._collection.count()==0:
+    vectorstore.add_documents(result)
 retriever = vectorstore.as_retriever(Searchtype = "Similarity", search_kwargs={"k": 1})
 model = ChatGoogleGenerativeAI(model = "models/gemini-2.5-flash", temperature=0.9, max_tokens=1024)
 st.title("Yash RAG System")
