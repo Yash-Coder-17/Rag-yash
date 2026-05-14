@@ -5,7 +5,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import Chroma
 import streamlit as st
 # from langchain_community.retrievers.multi_query import MultiQueryRetriever
 
@@ -23,7 +23,7 @@ vectorstore = Chroma(
         model="models/embedding-001",
         google_api_key=st.secrets["GOOGLE_API_KEY"]
     ),
-    persist_directory='Chromadb',
+    persist_directory='rag/Chromadb',
     collection_name='yash'
 )
 vectorstore.add_documents(result)
