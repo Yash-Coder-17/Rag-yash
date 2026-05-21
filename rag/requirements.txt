@@ -1,8 +1,8 @@
-langchain==0.3.27
+langchain
 langchain-core
 groq
-langchain-google-genai==2.1.9
-google-generativeai==0.8.5
+langchain-google-genai
+google-generativeai
 langchain-huggingface
 transformers
 huggingface-hub
@@ -10,7 +10,7 @@ python-dotenv
 numpy
 scikit-learn
 streamlit
-langchain_community==0.3.27
+langchain_community
 langchain_experimental
 SpeechRecognition
 pydub
@@ -18,5 +18,5 @@ pyttsx3
 gtts
 Sounddevice
 pypdf
-langchain-chroma==0.2.5
-chromadb==1.0.20
+langchain-chroma
+chromadb
