@@ -21,9 +21,8 @@ splitter = RecursiveCharacterTextSplitter(
 ) 
 result = splitter.split_documents([docs[0]])                        #split_document isliye use kiyae kyuki string kao document mai convert karne kae liyae
 vectorstore = Chroma(
-    embedding_function=GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001",
-        google_api_key=st.secrets["GOOGLE_API_KEY"]
+    embedding_function=HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
     ),
     persist_directory='rag/Chromadb',
     collection_name='yash'
