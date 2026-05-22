@@ -6,6 +6,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
 from langchain_chroma import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
 import streamlit as st
 import os
 # from langchain_community.retrievers.multi_query import MultiQueryRetriever
@@ -20,8 +21,8 @@ splitter = RecursiveCharacterTextSplitter(
 ) 
 result = splitter.split_documents([docs[0]])                        #split_document isliye use kiyae kyuki string kao document mai convert karne kae liyae
 vectorstore = Chroma(
-    embedding_function=GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001",
+    embedding_function=HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2",
         google_api_key=st.secrets["GOOGLE_API_KEY"]
     ),
     persist_directory='rag/Chromadb',
